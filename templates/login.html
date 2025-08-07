@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>BrainStroke Detection - Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="../static/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../static/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../static/fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="../static/css/aos.css">
+
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="../static/css/style.css">
+
+  <style>
+    :root {
+      --primary-color: #4e73df;
+      --secondary-color: #4e73df;
+      --dark-color: #2e59d9;
+      --light-color: #f8f9fc;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      color: #333;
+      background-color: #fff;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    .site-logo a {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .site-logo a:hover {
+      color: var(--primary-color);
+    }
+
+    .site-logo a .text-primary {
+      color: var(--primary-color) !important;
+    }
+
+    .hero {
+      height: 65vh;
+      min-height: 300px;
+      position: relative;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero .intro {
+      position: relative;
+      z-index: 10;
+      max-width: 800px;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .site-navbar {
+      padding: 1rem 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    .site-navbar.scrolled {
+      padding: 0.5rem 0;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .site-menu li {
+      display: inline-block;
+      margin-left: 20px;
+    }
+
+    .site-menu li a {
+      color: #fff;
+      position: relative;
+      padding: 5px 0;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+
+    .site-menu li a:before {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: all 0.3s ease;
+    }
+    
+    .site-menu li a:hover:before {
+      width: 100%;
+    }
+
+    .site-menu li.active a:before {
+      width: 100%;
+    }
+
+    .login-container {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      margin-top: -50px;
+      position: relative;
+      z-index: 20;
+      animation: slideUp 0.8s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-control {
+      border: none;
+      border-bottom: 2px solid #e9ecef;
+      border-radius: 0;
+      padding: 15px 0;
+      font-size: 16px;
+      background-color: transparent;
+      transition: all 0.3s;
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+      border-color: var(--primary-color);
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      color: white;
+      padding: 12px 35px;
+      border-radius: 50px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(78, 115, 223, 0.4);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--dark-color);
+      border-color: var(--dark-color);
+      transform: translateY(-3px);
+    }
+
+    label {
+      color: #495057;
+      font-weight: 500;
+      margin-bottom: 8px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .login-heading {
+      font-weight: 700;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .login-heading:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 50px;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+
+    .site-footer {
+      background-color: #f8f9fc;
+      color: #333;
+      padding: 3rem 0;
+    }
+
+    .error-message {
+      color: #dc3545;
+      font-size: 14px;
+      margin-top: 5px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site-wrap" id="home-section">
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <header class="site-navbar site-navbar-target" role="banner">
+      <div class="container">
+        <div class="row align-items-center position-relative">
+          <div class="col-3">
+            <div class="site-logo">
+              <a href="{{url_for('first')}}"><span class="text-primary"><img src="../static/images/logo.png" width="100px"></span></a>
+            </div>
+          </div>
+
+          <div class="col-9 text-right">
+            <span class="d-inline-block d-lg-none"><a href="#" class="site-menu-toggle js-menu-toggle py-5"><span class="icon-menu h3 text-white"></span></a></span>
+            <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav ml-auto">
+                <li><a href="{{url_for('first')}}" class="nav-link">Home</a></li>
+                <li class="active"><a href="{{url_for('login')}}" class="nav-link">Login</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero" style="background-image: url('../static/images/head.jpg');">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-lg-8 intro text-center">
+            <h1 class="text-white">BrainStroke Detection Using Federated Deep Learning</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section bg-light" id="login-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-6">
+            <div class="login-container">
+              <h2 class="text-center login-heading">Account Login</h2>
+              <form id="loginForm" method="POST" action="{{url_for('login')}}">
+                <div class="form-group">
+                  <label for="uname">Username</label>
+                  <input type="text" id="uname" name="uname" placeholder="Enter your username" class="form-control" required>
+                  <div class="error-message" id="uname-error">Username is required</div>
+                </div>
+                <div class="form-group">
+                  <label for="pwd">Password</label>
+                  <input type="password" id="pwd" name="pwd" placeholder="Enter your password" class="form-control" required>
+                  <div class="error-message" id="pwd-error">Password is required</div>
+                </div>
+                <div class="form-group mt-4 text-center">
+                  <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer py-5">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-4">
+            <h4 class="text-black">About BrainStrokeDetection.</h4>
+            <p>Federated deep learning-based early detection of brain stroke using advanced MRI analysis</p>
+          </div>
+          <div class="col-lg-4">
+            <h4 class="text-black">Contact</h4>
+            <a href="mailto:alzdetects@gmail.com">darshangowda4618@gmail.com</a>
+          </div>
+          <div class="col-lg-4">
+            <h4 class="text-black">Resources</h4>
+            <a href="https://drive.google.com/file/d/1C2mghmcOQqE2DCfYkrMKM3ql82hkBiX8/view?usp=sharing">Access research papers and documentation</a>
+          </div>
+        </div>
+        
+        <div class="row pt-4 mt-4">
+          <div class="col-12">
+            <p>© 2025 BrainStrokeDetect. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../static/js/jquery-3.3.1.min.js"></script>
+  <script src="../static/js/popper.min.js"></script>
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script src="../static/js/owl.carousel.min.js"></script>
+  <script src="../static/js/jquery.sticky.js"></script>
+  <script src="../static/js/jquery.waypoints.min.js"></script>
+  <script src="../static/js/jquery.animateNumber.min.js"></script>
+  <script src="../static/js/jquery.fancybox.min.js"></script>
+  <script src="../static/js/jquery.easing.1.3.js"></script>
+  <script src="../static/js/bootstrap-datepicker.min.js"></script>
+  <script src="../static/js/aos.js"></script>
+  <script src="../static/js/main.js"></script>
+
+  <script>
+    $(window).scroll(function() {
+      var scroll = $(window).scrollTop();
+      if (scroll > 50) {
+        $('.site-navbar').addClass('scrolled');
+      } else {
+        $('.site-navbar').removeClass('scrolled');
+      }
+    });
+
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 800,
+        easing: 'ease',
+        once: true,
+        offset: 100
+      });
+    }
+
+    // Form validation and submission
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Always prevent default form submission
+      
+      const username = document.getElementById('uname').value.trim();
+      const password = document.getElementById('pwd').value.trim();
+      
+      // Clear previous error messages
+      document.getElementById('uname-error').style.display = 'none';
+      document.getElementById('pwd-error').style.display = 'none';
+      
+      let isValid = true;
+      
+      // Validate username
+      if (username === '') {
+        document.getElementById('uname-error').style.display = 'block';
+        isValid = false;
+      }
+      
+      // Validate password
+      if (password === '') {
+        document.getElementById('pwd-error').style.display = 'block';
+        isValid = false;
+      }
+      
+      // If validation passes, proceed with login
+      if (isValid) {
+        // Store username in localStorage
+        localStorage.setItem("username", username);
+        
+        // Show success message
+        alert("Login Success!");
+        
+        // Redirect to index page using Flask url_for
+        window.location.href = "index";
+      }
+    });
+
+    addEventListener("load", function() {
+      setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
+</body>
+</html>

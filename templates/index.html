@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>BrainStroke Detection</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="../static/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../static/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../static/fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="../static/css/aos.css">
+
+  <link rel="stylesheet" href="../static/css/style.css">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #444;
+      background-color: #f8f9fa;
+    }
+
+    .site-logo a {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #3a86ff;
+    }
+
+    .hero {
+      height: 50vh;
+      position: relative;
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(41, 50, 80, 0.7);
+    }
+
+    .hero .intro {
+      position: relative;
+      z-index: 10;
+    }
+
+    .services {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      margin-bottom: 50px;
+    }
+
+    .wrap-login100 {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin: 20px auto;
+      max-width: 650px;
+    }
+
+    .login100-form-title {
+      background: linear-gradient(120deg, #3a86ff, #8338ec);
+      color: white;
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .login100-form-title-1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .wrap-input100 {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .input100 {
+      width: 100%;
+      padding: 12px 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+
+    .input100:focus {
+      border-color: #3a86ff;
+      box-shadow: 0 0 0 2px rgba(58, 134, 255, 0.2);
+    }
+
+    .head {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    #preview {
+      display: block;
+      max-width: 100%;
+      max-height: 300px;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .login100-form-btn {
+      background: linear-gradient(120deg, #3a86ff, #8338ec);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .login100-form-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(58, 134, 255, 0.4);
+    }
+
+    .main-navbar {
+      background-color: white;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .site-menu a {
+      font-weight: 500;
+      color: #0c1329;
+      transition: all 0.3s;
+    }
+
+    .site-menu a:hover {
+      color: #3a86ff;
+    }
+
+    .site-menu .active a {
+      color: #3a86ff;
+      position: relative;
+    }
+
+    .site-menu .active a:after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #3a86ff;
+    }
+
+    .upload-icon {
+      display: block;
+      margin: 0 auto 20px;
+      font-size: 40px;
+      color: #8338ec;
+    }
+
+    .file-upload-container {
+      text-align: center;
+      border: 2px dashed #ddd;
+      border-radius: 10px;
+      padding: 40px 20px;
+      margin-bottom: 20px;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .file-upload-container:hover {
+      border-color: #3a86ff;
+      background-color: rgba(58, 134, 255, 0.05);
+    }
+
+    .upload-text {
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background-color: #293250;
+      color: #f0f2f5;
+    }
+
+    footer h4 {
+      color: #ffffff;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      color: #485c87;
+    }
+
+    .welcome-user {
+      background: linear-gradient(120deg, #3a86ff, #8338ec);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      margin-right: 15px;
+      font-weight: 500;
+      display: inline-block;
+    }
+
+    .user-area {
+      display: flex;
+      align-items: center;
+    }
+
+    .logout-btn {
+      color: white;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      transition: all 0.3s;
+    }
+
+    .logout-btn:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      text-decoration: none;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site-wrap" id="home-section">
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <header class="site-navbar site-navbar-target head" role="banner">
+      <div class="container">
+        <div class="row align-items-center position-relative">
+          <div class="col-3">
+            <div class="site-logo">
+              <a href="index"><span class="text-primary"><img src="../static/images/logo.png" width="100px"></span></a>
+            </div>
+          </div>
+
+          <div class="col-5 text-center">
+            <nav class="site-navigation text-center ml-auto d-none d-lg-block" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav ml-auto">
+                <li><a href="{{url_for('first')}}" class="nav-link">Home</a></li>
+                <li><a href="{{url_for('login')}}" class="nav-link">Login</a></li>
+                <li class="active"><a href="{{url_for('main')}}" class="nav-link">Preview</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="col-4 text-right">
+            <!-- User welcome area, initially hidden -->
+            <div class="user-area" id="userWelcomeArea" style="display: none;">
+              <div class="welcome-user">Welcome<div></div>
+               <span id="usernameDisplay">"User  "</span>
+              </div>
+              <a href="{{url_for('login')}}" class="logout-btn" onclick="logout()">Logout</a>
+            </div>
+            <span class="d-inline-block d-lg-none">
+              <a href="#" class="site-menu-toggle js-menu-toggle py-5">
+                <span class="icon-menu h3 text-white"></span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero" style="background-image: url('../static/images/head1.jpg');">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-lg-8 intro text-center">
+            <h1 class="text-white" data-aos="fade-up">BrainStroke Detection</h1>
+            <p class="text-white" data-aos="fade-up" data-aos-delay="100">Federated deep learning-based early detection of brain stroke using advanced MRI analysis</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-title text-center" data-aos="fade-up">
+          <h2>Early Detection Saves Lives</h2>
+          <p class="lead mb-5">Upload your MRI scan for instant analysis using our state-of-the-art in Federated deep learning</p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="wrap-login100" data-aos="fade-up">
+              <div class="login100-form-title">
+                <span class="login100-form-title-1">MRI Scan Analysis</span>
+              </div>
+
+              <script>
+  function previewImage() {
+    var fileInput = document.getElementById("imagefile");
+    var file = fileInput.files[0];
+
+    if (file) {
+      var fileReader = new FileReader();
+      var img = new Image();
+
+      fileReader.onload = function (event) {
+        img.onload = function () {
+          if (img.width === 496 && img.height === 248) {
+            document.getElementById("upload-instruction").style.display = "none";
+            document.getElementById("preview").setAttribute("src", event.target.result);
+            document.getElementById("preview").style.display = "block";
+            document.getElementById("preview").dataset.valid = "true";
+          } else {
+            alert("Invalid input: File rejected!.");
+            fileInput.value = ""; // Clear invalid image
+            document.getElementById("preview").style.display = "none";
+            document.getElementById("preview").dataset.valid = "false";
+          }
+        };
+        img.src = event.target.result;
+      };
+
+      fileReader.readAsDataURL(file);
+    }
+  }
+
+  // Prevent form submission if image is not valid
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('.login100-form');
+    form.addEventListener('submit', function (e) {
+      const isValid = document.getElementById("preview").dataset.valid === "true";
+      if (!isValid) {
+        e.preventDefault();
+        alert("Please upload an image that is exactly 496x248 pixels.");
+      }
+    });
+  });
+</script>
+
+
+              <form class="login100-form validate-form" action="/submit" method="POST" enctype="multipart/form-data">
+                <div class="file-upload-container" id="upload-instruction"
+                  onclick="document.getElementById('imagefile').click();">
+                  <div class="upload-icon">
+                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                  </div>
+                  <h4 class="upload-text">Drag and drop your MRI scan or click to browse</h4>
+                  <p class="text-muted">Supported formats: JPG, PNG, DICOM</p>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-26" style="display: none;">
+                  <input class="input100" type="file" name="my_image" id="imagefile" accept="image/*"
+                    onchange="previewImage();" required>
+                </div>
+
+                <img id="preview" style="display: none;">
+
+                <div class="container-login100-form-btn text-center">
+                  <button class="login100-form-btn" type="submit">Analyze Scan</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer py-5">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-4">
+            <h4 class="text-black">About</h4>
+            <p>Federated deep learning-based early detection of brain stroke using advanced MRI analysis</p>
+          </div>
+          <div class="col-lg-4">
+            <h4 class="text-black">Contact</h4>
+            <a href="mailto:alzdetects@gmail.com">darshangowda4618@gmail.com</a>
+          </div>
+          <div class="col-lg-4">
+            <h4 class="text-black">Privacy</h4>
+            <a href="https://drive.google.com/file/d/1C2mghmcOQqE2DCfYkrMKM3ql82hkBiX8/view?usp=sharing">Access research papers and documentation</a>
+          </div>
+        </div>
+
+        <div class="row pt-4 mt-4">
+          <div class="col-12">
+            <p class="text-center">© 2025 BrainStrokeDetect.All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../static/js/jquery-3.3.1.min.js"></script>
+    <script src="../static/js/popper.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/owl.carousel.min.js"></script>
+    <script src="../static/js/jquery.sticky.js"></script>
+    <script src="../static/js/jquery.waypoints.min.js"></script>
+    <script src="../static/js/jquery.animateNumber.min.js"></script>
+    <script src="../static/js/jquery.fancybox.min.js"></script>
+    <script src="../static/js/jquery.easing.1.3.js"></script>
+    <script src="../static/js/bootstrap-datepicker.min.js"></script>
+    <script src="../static/js/aos.js"></script>
+    <script src="../static/js/main.js"></script>
+
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var username = localStorage.getItem("username");
+
+        if (username) {
+          document.getElementById("userWelcomeArea").style.display = "flex";
+
+          document.getElementById("usernameDisplay").textContent = username;
+        } else {
+
+        }
+      });
+
+      // Logout function to clear the stored username
+      function logout() {
+        localStorage.removeItem("username");
+        // You can add additional logout functionality here if needed
+      }
+    </script>
+
+</body>
