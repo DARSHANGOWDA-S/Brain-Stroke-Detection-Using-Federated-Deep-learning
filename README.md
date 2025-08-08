@@ -1,6 +1,6 @@
-<marquee behavior="scroll" direction="left" scrollamount="5">
-  ### All THE BEST TO THE PEOPLES ❤️
-</marquee>
+
+.............................................................................................. All THE BEST TO THE PEOPLES ❤️........................................................................................
+
 
 <h3 style="color: orange; font-weight: bold align:center;">
 🚧 This project is currently under active development
