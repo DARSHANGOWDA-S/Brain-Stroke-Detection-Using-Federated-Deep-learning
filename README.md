@@ -1,101 +1,15 @@
-<h3 style="color: orange; font-weight: bold;">
+<h3 style="color: orange; font-weight: bold align:center;">
 🚧 This project is currently under active development
 </h3>
 
-1️⃣ Download the Project
-If it’s already on GitHub:
+---
+## 💡 Got a Question? Let's Connect!
 
-Go to your GitHub repository link.
+Thank you for checking out this project! Your experience is important to me, and I want to make sure you have the best possible start.
 
-Click Code → Download ZIP.
+For the best experience and proper usage, please feel free to **open a new issue** on this repository with any inquiries or feedback you have.
 
-Extract the ZIP file somewhere, e.g.
+Your questions and insights are valuable and help me make this project even better. Let's work together to make sure you can run this code smoothly and get the most out of it!
 
-makefile
-Copy code
-C:\Users\darsh\Desktop\BrainStroke
-If it’s not on GitHub yet, just copy your current folder and give it to someone.
-
-2️⃣ Install Python
-You (and anyone running it) should have Python 3.10+ installed.
-
-Recommended: Install Python 3.11.x from
-https://www.python.org/downloads/
-✅ During installation, check “Add Python to PATH”.
-
-3️⃣ Open Command Prompt in Project Folder
-Press Shift + Right-click inside the project folder → Open PowerShell window here.
-
-Or, in Command Prompt:
-
-powershell
-Copy code
-cd "C:\Users\darsh\Desktop\BrainStroke"
-4️⃣ Create a Virtual Environment (Recommended)
-powershell
-Copy code
-python -m venv venv
-Activate it:
-
-powershell
-Copy code
-venv\Scripts\activate
-5️⃣ Install Requirements
-If you have a requirements.txt file:
-
-powershell
-Copy code
-pip install -r requirements.txt
-⚠ If there are any install errors, install missing packages manually, for example:
-
-powershell
-Copy code
-pip install flask torch torchvision
-6️⃣ Run the Project
-powershell
-Copy code
-python app.py
-If everything is fine, you’ll see:
-
-csharp
-Copy code
- * Running on http://127.0.0.1:5000
-7️⃣ Open in Browser
-Go to:
-
-cpp
-Copy code
-http://127.0.0.1:5000
-The Brain Stroke Detection web app will open.
-
-8️⃣ Stop the App
-Press CTRL + C in the terminal.
-
-💡 Extra Tip — Double Click to Run
-If you want to run it without typing commands:
-
-Create a new text file run.bat in the project folder.
-
-Add:
-
-bat
-Copy code
-@echo off
-call venv\Scripts\activate
-python app.py
-pause
-Save and double-click run.bat anytime.
-
-
-Correct command in PowerShell
-
-& "C:/Users/darsh/AppData/Local/Programs/Python/Python311/python.exe" -m pip install -r requirements.txt
-
-Or for Flask only:
-
-& "C:/Users/darsh/AppData/Local/Programs/Python/Python311/python.exe" -m pip install flask
-
-Then run your app:
-
-& "C:/Users/darsh/AppData/Local/Programs/Python/Python311/python.exe" app.py
+---
 
