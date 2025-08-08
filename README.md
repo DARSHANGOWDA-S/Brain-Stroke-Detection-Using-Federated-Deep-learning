@@ -23,7 +23,7 @@ Your questions and insights are valuable and help me make this project even bett
 I'm always happy to connect! Feel free to reach out for questions, collaboration, or just to say hello.
 
 * **Email:** [darshangowda4618@gmail.com](mailto:darshangowda4618@gmail.com)
-* **LinkedIn:** [DARSHAN S]((https://www.linkedin.com/in/darshans2003/))
+* **LinkedIn:** [DARSHAN S](https://www.linkedin.com/in/darshans2003/)
 * **GitHub:** [DARSHANGOWDA-S](https://github.com/DARSHANGOWDA-S)
 
 ---
