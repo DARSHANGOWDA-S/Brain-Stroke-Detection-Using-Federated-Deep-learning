@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>BrainStroke Detection - Performance Charts</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="../static/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../static/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../static/fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="../static/css/aos.css">
+
+  <link rel="stylesheet" href="../static/css/style.css">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #444;
+      background-color: #f8f9fa;
+    }
+    
+    .site-logo a {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #3a86ff;
+    }
+    
+    .hero {
+      height: 40vh;
+      position: relative;
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(41, 50, 80, 0.7);
+    }
+    
+    .hero .intro {
+      position: relative;
+      z-index: 10;
+    }
+    
+    .main-navbar {
+      background-color: white;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+    
+    .site-menu a {
+      font-weight: 500;
+      color: #293250;
+      transition: all 0.3s;
+    }
+    
+    .site-menu a:hover {
+      color: #3a86ff;
+    }
+    
+    .site-menu .active a {
+      color: #3a86ff;
+      position: relative;
+    }
+    
+    .site-menu .active a:after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #3a86ff;
+    }
+    
+    .chart-container {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      padding: 30px;
+      margin: 30px auto;
+      max-width: 1000px;
+    }
+    
+    .chart-title {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #293250;
+      font-weight: 600;
+    }
+    
+    .chart-subtitle {
+      color: #666;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+    
+    .section-heading {
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #293250;
+    }
+    
+    .section-heading:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #3a86ff, #8338ec);
+    }
+    
+    footer {
+      background-color: #293250;
+      color: #f0f2f5; 
+    }
+    
+    footer h4 {
+      color: #ffffff;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    footer p {
+      color: #485c87; 
+    }
+    
+    .stats-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+      border-top: 4px solid #3a86ff;
+    }
+    
+    .stats-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .stats-card h3 {
+      font-size: 1.2rem;
+      color: #293250;
+      margin-bottom: 15px;
+    }
+    
+    .stats-card .value {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #3a86ff;
+    }
+    
+    .model-comparison {
+      display: flex;
+      justify-content: space-between;
+      margin: 40px 0;
+    }
+    
+    .model-card {
+      flex: 1;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      margin: 0 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      text-align: center;
+      border-top: 4px solid;
+    }
+    
+    .model-card.cnn {
+      border-color: #b87333;
+    }
+    
+    .model-card.inception {
+      border-color: silver;
+    }
+    
+    .model-card h3 {
+      margin-bottom: 15px;
+      color: #293250;
+    }
+    
+    .model-card .accuracy {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 20px 0;
+      color: #293250;
+    }
+    
+    .model-card .model-desc {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .chart-section {
+      padding: 60px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .chart-container {
+        padding: 20px;
+        margin: 20px;
+      }
+      
+      .model-comparison {
+        flex-direction: column;
+      }
+      
+      .model-card {
+        margin: 10px 0;
+      }
+    }
+  </style>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
+  
+  <script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawPieChart);                          //Displays Alzheimer's class distribution.
+    
+    function drawPieChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Class', 'Percentage'],
+        ['Mild Demented', 30],
+        ['Moderate Demented', 25],
+        ['Non Demented', 40],
+        ['Very Mild Demented', 45]
+      ]);
+
+      var options = {
+        title: '',
+        is3D: true,
+        backgroundColor: 'transparent',
+        colors: ['#3a86ff', '#ff006e', '#8338ec', '#fb5607'],
+        legend: {position: 'right', textStyle: {color: '#293250', fontSize: 14, fontName: 'Poppins'}},
+        pieSliceTextStyle: {fontSize: 14, fontName: 'Poppins'},
+        pieSliceText: 'percentage',
+        chartArea: {width: '90%', height: '80%'}
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+      chart.draw(data, options);                                                                  //
+    }
+  </script>
+
+  <script type="text/javascript">                               
+    google.charts.load("current", {packages:['corechart']});               
+    google.charts.setOnLoadCallback(drawBarChart);                        //Compares model performance (InceptionV3 vs CNN).
+    
+    function drawBarChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Model", "Accuracy (%)", { role: "style" }],
+        ["InceptionV3", 76.80, "#6c757d"],
+        ["CNN", 86.48, "#b87333"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "",
+        backgroundColor: 'transparent',
+        bar: {groupWidth: "70%"},
+        legend: { position: "none" },
+        hAxis: {textStyle: {fontName: 'Poppins'}},
+        vAxis: {
+          title: "Accuracy (%)",
+          viewWindow: {min: 0, max: 100},
+          ticks: [0, 20, 40, 60, 80, 100],
+          textStyle: {fontName: 'Poppins'},
+          titleTextStyle: {fontName: 'Poppins'}
+        },
+        chartArea: {width: '80%', height: '70%'}
+      };
+      
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);                            //
+    }
+  </script>                                                             
+</head>
+
+<body>
+  <div class="site-wrap" id="home-section">
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <header class="site-navbar site-navbar-target main-navbar" role="banner">
+      <div class="container">
+        <div class="row align-items-center position-relative">
+          <div class="col-3">
+            <div class="site-logo">
+              <a href="index"><span class="text-primary"><img src="../static/images/logo.png" width="100px"></span></a>
+            </div>
+          </div>
+
+          <div class="col-9 text-right">
+            <span class="d-inline-block d-lg-none">
+              <a href="#" class="site-menu-toggle js-menu-toggle py-5">
+                <span class="icon-menu h3 text-white"></span>
+              </a>
+            </span>
+
+            <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav ml-auto">
+                <li><a href="{{url_for('first')}}" class="nav-link text-black">Home</a></li>
+                <li><a href="{{url_for('login')}}" class="nav-link text-black">Login</a></li>
+                <li><a href="{{url_for('main')}}" class="nav-link text-black">Preview</a></li>
+                <li><a href="{{url_for('performance')}}" class="nav-link text-black">Performance Analysis</a></li>
+                <li class="active"><a href="{{url_for('chart')}}" class="nav-link">Chart</a></li>
+                <li><a href="{{url_for('first')}}" class="nav-link text-black">Logout</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero" style="background-image: url('../static/images/head.jpg');">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-lg-8 intro text-center">
+            <h1 class="text-white" data-aos="fade-up">Performance Analytics</h1>
+            <p class="text-white" data-aos="fade-up" data-aos-delay="100">Visual representation of our federated deep learning model's capabilities for brain stroke detection</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="chart-section bg-light" id="distribution-section">
+      <div class="container">
+        <h2 class="section-heading" data-aos="fade-up">BrainStroke Classification Distribution</h2>
+        
+        <div class="row justify-content-center">
+          <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">           
+            <div class="stats-card">
+              <h3>Mild Demented</h3>
+              <div class="value">30%</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="stats-card">
+              <h3>Moderate Demented</h3>
+              <div class="value">25%</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="stats-card">
+              <h3>Non Demented</h3>
+              <div class="value">40%</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="stats-card">  
+              <h3>Very Mild Demented</h3>
+              <div class="value">45%</div>
+            </div>                                          
+            </div>                                          
+          </div>
+        </div>
+
+        <div class="chart-container" data-aos="fade-up">
+          <h3 class="chart-title">Classification Distribution</h3>
+          <p class="chart-subtitle">Percentage breakdown of BrainStroke stages in our dataset</p>
+          <div id="piechart_3d" style="width: 100%; height: 500px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chart-section" id="model-section">
+      <div class="container">
+        <h2 class="section-heading" data-aos="fade-up">Model Classification Performance</h2>
+        <p class="text-center mb-5" data-aos="fade-up">Comparing the accuracy of different AI models for BrainStroke detection</p>
+
+        <div class="model-comparison" data-aos="fade-up">
+          <div class="model-card inception">
+            <h3>InceptionV3</h3>
+            <div class="accuracy">76.80%</div>
+            <p class="model-desc">Deep neural network architecture specialized in image recognition with efficient inception modules</p>
+          </div>
+          
+          <div class="model-card cnn">
+            <h3>CNN</h3>
+            <div class="accuracy">86.48%</div>
+            <p class="model-desc">Custom Convolutional Neural Network optimized for medical image analysis</p>
+          </div>
+        </div>
+
+        <div class="chart-container" data-aos="fade-up">
+          <h3 class="chart-title">Model Accuracy Comparison</h3>
+          <p class="chart-subtitle">Performance benchmark between InceptionV3 and CNN models</p>
+          <div id="columnchart_values" style="width: 100%; height: 400px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer py-5">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-4">
+            <h4 class="text-black">About BrainStrokeDetect.</h4>
+            <p>Federated deep learning-based early detection of brain stroke using advanced MRI analysis</p>
+          </div>
+          <div class="col-lg-4">
+            <h4 class="text-black">Contact</h4>
+           <a href="mailto:alzdetects@gmail.com">darshangowda4618@gmail.com</a>
+          </div>
+          <div class="col-lg-4">
+            <h4 class="text-black">Resources</h4>
+            <a href="https://drive.google.com/file/d/1C2mghmcOQqE2DCfYkrMKM3ql82hkBiX8/view?usp=sharing">Access research papers and documentation</a>
+          </div>
+        </div>
+        
+        <div class="row pt-4 mt-4">
+          <div class="col-12">
+            <p>© 2025 BrainStrokeDetect. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../static/js/jquery-3.3.1.min.js"></script>
+  <script src="../static/js/popper.min.js"></script>
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script src="../static/js/owl.carousel.min.js"></script>
+  <script src="../static/js/jquery.sticky.js"></script>
+  <script src="../static/js/jquery.waypoints.min.js"></script>
+  <script src="../static/js/jquery.animateNumber.min.js"></script>
+  <script src="../static/js/jquery.fancybox.min.js"></script>
+  <script src="../static/js/jquery.easing.1.3.js"></script>
+  <script src="../static/js/bootstrap-datepicker.min.js"></script>
+  <script src="../static/js/aos.js"></script>
+  <script src="../static/js/main.js"></script>
+</body>
+</html>
