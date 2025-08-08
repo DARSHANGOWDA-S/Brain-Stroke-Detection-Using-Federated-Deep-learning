@@ -1,4 +1,4 @@
-CODE BLOCKS(app.py)
+Working CODE BLOCKS(app.py)
 
 ->What This Code Does (In Short)
 This Flask web application lets users upload brain MRI images and uses a trained deep learning model (a modified ResNet18 CNN) to classify the image into one of four BrainStroke disease stages: Mild Demented, Moderate Demented, Non Demented, or Very Mild Demented. Users can log in, upload images, get predictions, and view related pages like performance and charts.
