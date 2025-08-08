@@ -85,3 +85,17 @@ call venv\Scripts\activate
 python app.py
 pause
 Save and double-click run.bat anytime.
+
+
+Correct command in PowerShell
+
+& "C:/Users/darsh/AppData/Local/Programs/Python/Python311/python.exe" -m pip install -r requirements.txt
+
+Or for Flask only:
+
+& "C:/Users/darsh/AppData/Local/Programs/Python/Python311/python.exe" -m pip install flask
+
+Then run your app:
+
+& "C:/Users/darsh/AppData/Local/Programs/Python/Python311/python.exe" app.py
+
