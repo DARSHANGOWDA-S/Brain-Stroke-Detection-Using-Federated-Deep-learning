@@ -1,0 +1,42 @@
+CODE BLOCKS(performance.html)
+
+->What This Code Does (in Short)
+This code builds a performance analysis web page for an BrainStroke Detection system. It visually displays model evaluation metrics (accuracy, precision, recall, F1-score) and a confusion matrix, using HTML, CSS, JavaScript, and Bootstrap. It’s part of a larger web application (Flask suggested by {{url_for()}} syntax).
+
+->High-Level Structure and Purpose of Each Part
+
+| **Section**                 | **Purpose**                                                                                                                      |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `<head>`                    | Includes metadata, font imports, CSS stylesheets (local and external), and custom styles for layout and design consistency.      |
+| `<style>` (inside `<head>`) | Contains embedded CSS for defining the site's theme (color palette, typography, layout effects, animations, and responsiveness). |
+| `<body>`                    | Contains the visible content and layout for the **Performance Analysis** page.                                                   |
+| `.site-navbar`              | Responsive top navigation bar with links to various sections like Home, Login, Preview, Performance Analysis, and Chart.         |
+| `.hero`                     | Full-width header with a background image and heading (`Performance Analysis`) overlaid.                                         |
+| `.performance-section`      | Displays **four metric cards** (Accuracy, Precision, Recall, F1-score) with animated values and stylized layout.                 |
+| `.confusion-matrix`         | Displays a labeled image (confusion matrix) to show model classification performance visually.                                   |
+| `<footer>`                  | Contains **About**, **Contact**, and **Resources** (linked to Drive docs), and copyright.                                        |
+| `<script>` section          | Adds interactivity via jQuery, Bootstrap, AOS (animation), scroll effects, and metric value count-up animation.                  |
+
+ ->Key Features:
+📊 Model Performance Display
+Metrics: Accuracy (0.86), Precision (0.86), Recall (0.83), F1-Score (0.84).
+Shown in animated, stylized cards using CSS transitions and jQuery animations.
+
+🧠 Confusion Matrix
+Displayed as a static image (download.png) in a card-style layout.
+
+🌐 Responsive Navigation Bar
+Scroll-based shrinking effect.
+Flask-integrated navigation with url_for for dynamic routing.
+
+🎨 Visual Design and UX
+Custom styling using Google Fonts (Playfair, Roboto, Montserrat).
+Animations: fade-in, slide-up, hover effects, and metric counter animation.
+Modern design using Bootstrap grid and utility classes.
+
+🧩 Modular, Extendable Structure
+Linked to static resources (../static/...), allowing easy updates to styles, scripts, and images.
+Supports responsive mobile navigation (site-mobile-menu).
+
+🧪 Flask Integration (Backend)
+{{url_for('...')}} indicates Flask templating for routing, making this page part of a dynamic Flask app.

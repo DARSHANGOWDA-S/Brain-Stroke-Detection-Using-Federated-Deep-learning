@@ -1,0 +1,43 @@
+CODE BLOCKS(train_model.py)
+
+->This Python script is a PyTorch-based backend training pipeline for an Alzheimer's Disease MRI classification model. It's meant to train a deep learning model on MRI scan images, and optionally convert the trained model to a format suitable for web application use (e.g., Keras .h5 for TensorFlow-based apps).
+
+->What this code does (in short):
+It trains a ResNet-based Convolutional Neural Network (CNN) to classify MRI images into one of four BrainStroke stages:
+*Mild Demented
+*Moderate Demented
+*Very Mild Demented
+*Non Demented
+
+-> High-Level Structure and Purpose of Each Part:
+	Section       			Purpose
+
+*Imports and Setup		Loads all necessary libraries, sets seeds, defines constants.
+*BrainStroke class		Defines a CNN using a modified ResNet18 for image classification.
+*train_model()			Trains the model, tracks accuracy/loss, and saves the best model.
+*plot_training_history()	Plots and saves training and validation accuracy and loss curves.
+*convert_pytorch_to_keras()	Converts trained PyTorch model to Keras .h5 format using ONNX.
+*main()				Complete pipeline: loads data, trains model, saves it, optionally converts.
+
+
+->Key Features:
+
+1.Model:
+A fine-tuned ResNet-18 pretrained on ImageNet, modified for 4-class classification.
+
+2.Data Augmentation:
+Random flips, rotations, brightness/contrast changes during training.
+Normalization with standard ImageNet means/stds.
+
+3.Training Logic:
+Custom training + validation loop using tqdm progress bars.
+Saves best model (best_model.pth) when validation accuracy improves.
+
+4.Model Saving:
+Best model and final model saved to disk.
+Accuracy results saved in Accuracy.txt.
+
+5.Optional Conversion:
+Converts PyTorch model to ONNX → Keras (TensorFlow .h5) format for frontend use.
+This is useful if your frontend is built with TensorFlow/Flask.
+

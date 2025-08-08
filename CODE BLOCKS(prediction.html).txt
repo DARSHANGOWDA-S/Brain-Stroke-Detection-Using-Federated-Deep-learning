@@ -1,0 +1,45 @@
+CODE BLOCKS(prediction.html)
+
+This HTML file represents the results page of an BrainStroke detection web application that shows the prediction outcome (based on an MRI image) using an AI model.
+
+-> What This Code Does (In Short):
+This web page displays the BrainStroke analysis result, including:
+*An uploaded MRI image.
+*The predicted diagnosis (e.g., "Mild Demented", "Non Demented").
+*Navigation options, styling, animations, and a responsive UI layout.
+
+->🧱 High-Level Structure & Purpose of Each Part:
+1. <head> Section:
+*Title/Meta Tags: Defines page title, character set, and responsive behavior.
+*Fonts: Imports Google Fonts (Roboto, Playfair Display, Montserrat).
+*CSS Links: Loads Bootstrap and custom stylesheets for layout and animation.
+
+2. Custom CSS (<style> Block):
+*Defines the site's theme colors, typography, and animations.
+*Styles components like navbar, hero section, prediction container, image display, and footer.
+
+3. <body> Section:
+*Contains the entire visual structure:
+*Navbar (.site-navbar): Fixed navigation bar with links (Home, Login, Preview, Performance).
+*Hero Section: Visually engaging banner with background image and heading.
+
+Result Section:
+*Shows MRI image (img_path) and prediction (prediction) dynamically using Jinja templating.
+*Displays a message if no prediction is available.
+*Footer: Shows About, Contact email, and a link to documentation/research papers.
+
+4. Scripts at Bottom:
+*Includes jQuery, Bootstrap, AOS (animation on scroll), and custom JS files.
+*Adds scroll-based navbar effects and animation initialization.
+
+->KEY FEATURES:
+| Feature                        | Description                                                                                                |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| **Dynamic Prediction Display** | Uses Jinja templating (`{{prediction}}`, `{{img_path}}`) to dynamically render results from Flask backend. |
+| **Responsive & Styled UI**     | Bootstrap + Google Fonts + custom CSS for a clean, modern UI.                                              |
+| **Animations**                 | `AOS` and custom keyframes (`fadeIn`, `slideUp`) provide smooth entrance effects.                          |
+| **Fixed Navbar**               | Changes style on scroll for better user experience.                                                        |
+| **Fallback Message**           | Shows alert if no result is available.                                                                     |
+| **Footer with Resources**      | Offers contact info and link to documentation (e.g., Google Drive PDF).                                    |
+| **Clean Code Structure**       | Modular layout using Bootstrap grid and clear CSS naming.                                                  |
+	

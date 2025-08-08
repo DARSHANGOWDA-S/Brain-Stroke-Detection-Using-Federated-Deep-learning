@@ -1,0 +1,44 @@
+CODE BLOCKS(first.html)
+
+->What This Code Does (In Short)
+This HTML page serves as the homepage for an BrainStroke detection platform ("AlzDetect"), showcasing the benefits of using AI for early BrainStroke diagnosis from MRI scans. It includes a navigation menu, a full-screen hero section with a call to action, feature highlights, and a footer with contact and resource links.
+
+| Section                       | Description                                                                                                                      |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `<!DOCTYPE html>` to `<head>` | Sets the document type and loads meta info, fonts, and CSS files (Google Fonts, Bootstrap, AOS animations, custom styles, etc.). |
+| `<style> ... </style>`        | Custom inline CSS that defines the color scheme, typography, layout styling, and animation behavior.                             |
+| `<body>`                      | Contains the visual structure and content of the page.                                                                           |
+| `#home-section`               | Main wrapper for the homepage content.                                                                                           |
+| `.site-navbar`                | Sticky navigation bar with logo and links to Home and Login (Flask routes via `url_for`).                                        |
+| `.hero`                       | Full-screen intro banner with a title, tagline, and “Get Started” button. Background image adds visual impact.                   |
+| `.quick-info-card` section    | Highlights 3 key features (Accurate Analysis, Early Detection, AI-Powered) using icons and brief descriptions.                   |
+| `.site-footer`                | Footer with 3 columns: About, Contact, and Resources (including a research paper link).                                          |
+| `<script>...</script>`        | Loads JS libraries (jQuery, Bootstrap, animations, etc.) and custom scroll and AOS animation behavior.                           |
+
+🌟 Key Features:
+
+1.🧠 BrainStroke Detection Focus
+Branding and content revolve around using AI for BrainStroke diagnosis.
+
+2.🎨 Modern UI Design
+Uses Google Fonts, shadowed cards, smooth hover effects, and animations for a professional look.
+
+3.📱 Responsive and Mobile-First
+Built with Bootstrap; adapts well to desktop and mobile screens.
+
+4.📂 Flask Integration Ready
+{{ url_for('...') }} indicates it's integrated with Flask (Python backend).
+
+5.📷 Hero Section with Call-to-Action
+Draws user attention to the mission with a visual banner and “Get Started” button.
+
+6.📌 Sticky Navbar with Smooth Scroll Behavior
+Enhances usability by keeping navigation always accessible.
+
+7.📊 Quick Info Cards
+Clearly communicate benefits using visual icons and brief explanations.
+
+8.📚 Resource Link
+Provides direct access to documentation or research paper.
+
+

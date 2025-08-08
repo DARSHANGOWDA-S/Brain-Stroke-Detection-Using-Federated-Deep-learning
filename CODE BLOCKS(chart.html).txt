@@ -1,0 +1,50 @@
+CODE BLOCKS(chart.html)
+
+This page provides a visually engaging and informative dashboard that helps users understand how different models perform in detecting BrainStroke disease. It is ideal for use in a web-based research portal or diagnostic tool presentation.
+
+->What This Code Does (In Short):
+*This HTML page visualizes the performance of different models used for BrainStroke disease detection. It presents:
+*A pie chart showing the distribution of BrainStroke disease stages in the dataset.
+*A bar chart comparing the accuracy of two AI models (CNN and InceptionV3).
+*Styled statistics cards and a responsive layout for good user experience.
+
+->High-Level Structure and Purpose of Each Part:
+	Section					Purpose
+
+1. <head>				Loads stylesheets, fonts, scripts (Google Charts), and includes custom CSS to define the look and feel of the page.
+2. <script> (Pie Chart)			Loads and draws a 3D pie chart showing percentage distribution of BrainStroke disease classes.
+3. <script> (Bar Chart)			Loads and draws a column chart comparing the accuracy of two deep learning models.
+4. <body>				Contains the visual structure of the page including navbar, hero image, content sections, and footer.
+5. hero section				Displays a banner with the title and a short subtitle.
+6. chart-section (Distribution)		Shows percentage stats as cards and displays a pie chart of class distribution.
+7. chart-section (Model Accuracy)	Compares InceptionV3 and CNN visually and numerically using cards and a bar chart.
+8. footer				Gives brief info about the application and contact section (partially shown).
+
+->Key Features:
+1.🎨 Design & Style
+*Uses Poppins and Playfair Display fonts for clean, modern typography.
+*Custom CSS styles ensure responsiveness and visual appeal.
+*Dark-blue and gradient accents for thematic consistency.
+
+2.📊 Charts (Google Charts)
+Pie Chart:
+*3D format for BrainStroke class breakdown.
+*Color-coded segments (e.g., blue, pink, purple, orange).
+
+Bar Chart:
+*Displays accuracy of CNN (86.48%) vs. InceptionV3 (76.80%).
+*Annotated with percentage values above bars.
+
+3.📱 Responsive Layout
+*Mobile-optimized with collapsible navbar.
+*Cards and charts adjust layout using media queries for smaller devices.
+
+4.🔄 Interactivity & Animations
+*data-aos attributes are used for scroll-based animations (AOS library assumed to be loaded).
+*Hover effects on cards for interactive feedback.
+
+5.🔐 Flask Integration Ready
+*Uses Jinja templating syntax like {{ url_for('first') }}, indicating it's part of a Flask web app.
+
+
+

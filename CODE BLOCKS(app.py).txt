@@ -1,0 +1,56 @@
+CODE BLOCKS(app.py)
+
+->What This Code Does (In Short)
+This Flask web application lets users upload brain MRI images and uses a trained deep learning model (a modified ResNet18 CNN) to classify the image into one of four BrainStroke disease stages: Mild Demented, Moderate Demented, Non Demented, or Very Mild Demented. Users can log in, upload images, get predictions, and view related pages like performance and charts.
+
+->High-Level Structure and Purpose of Each Part
+1.Imports & Setup:
+
+*Imports Flask components, PyTorch, torchvision models and transforms, PIL for image handling.
+*Creates a folder to store uploaded images (static/tests).
+*Defines a dictionary verbose_name mapping model output labels to readable BrainStroke stages.
+
+2.Model Definition (BrainStrokeCNN class):
+
+*Defines a custom CNN based on resnet18.
+*Modifies the final fully connected layer to output 4 classes.
+*This model architecture is used to load pretrained weights and predict classes.
+
+3.Model Loading (load_pytorch_model function):
+
+*Loads the saved PyTorch model weights once and sets the model to evaluation mode.
+*Uses a global variable model to avoid reloading on every request.
+
+4.Prediction Function (predict_label):
+
+*Loads an image from disk.
+*Applies preprocessing transforms (resize, normalize).
+*Feeds image tensor to the model to get predictions.
+*Returns the human-readable Alzheimer’s stage from verbose_name.
+
+5.Flask Routes:
+
+/ and /first: Render the initial landing page.
+/login: Handles user login with a simple username-password check.
+/index: Main page after login.
+/submit: Handles image upload, saves the file, runs prediction, and shows results.
+/performance and /chart: Render additional pages (likely for performance metrics and visualizations).
+
+6.App Run:
+
+*Loads the model when the app starts.
+*Starts the Flask development server.
+
+->Key Features:
+1.Deep Learning Integration: Uses a CNN (ResNet18) customized for BrainStroke disease stage classification.
+
+2.Image Upload & Processing: Users can upload MRI images which are saved and processed on the server.
+
+3.Prediction & Feedback: The app returns a clear BrainStroke stage label based on the uploaded image.
+
+4.User Interface: Multiple pages with routes for login, main page, prediction display, and performance visualization.
+
+5.Model Loading Optimization: Model loaded once at startup, improving response time.
+
+6.File Management: Uploaded files are saved to a static directory for serving images on result pages.
+

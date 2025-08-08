@@ -1,0 +1,39 @@
+CODE BLOCKS(index.html)
+
+->What this Code Does (in Short):
+This is an HTML + CSS + JavaScript frontend template for an BrainStroke Disease Detection web application. It allows users (especially doctors) to upload MRI scans, preview the image, and submit it for AI analysis to detect signs of BrainStroke.
+
+->🧱 High-Level Structure and Purpose of Each Part:
+
+| **Section**          | **Purpose**                                                                                                     |
+| -------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `<head>`             | Sets up fonts, stylesheets, viewport settings, and in-page custom CSS to style the webpage.                     |
+| `<style>`            | Contains custom CSS for layout, typography, buttons, navbar, forms, upload box, image preview, etc.             |
+| `<body>`             | Holds the **main UI layout**, including: header, hero image, services section (file upload), and footer.        |
+| **Header**           | Contains the **site logo**, navigation bar with links (Home, Login, Preview), and user info (welcome + logout). |
+| **Hero Section**     | Displays a banner image and brief description: BrainStroke Detection”.                                         |
+| **Services Section** | Allows users to **upload an MRI scan** via file input. Includes preview logic and form submission to `/submit`. |
+| **JavaScript Code**  | Handles **image preview**, **image dimension validation** (496x248), and prevents form submission if invalid.   |
+| **Footer**           | Displays additional info like About, Contact, and Privacy links.                                                |
+| **Script imports**   | Loads libraries like jQuery, Bootstrap, Owl Carousel, AOS, etc., for animation and interaction.                 |
+
+->KEY FEATURES:
+
+| **Feature**                | **Description**                                                                                                 |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Image Upload & Preview** | Users can click or drag-and-drop an MRI image. A live preview is shown before submission.                       |
+| **Dimension Validation**   | Only images with **exact resolution 496x248** are accepted. If dimensions are wrong, the image is rejected.     |
+| **Responsive Design**      | Mobile-friendly, uses Bootstrap and responsive styling.                                                         |
+| **User Session Area**      | Displays a welcome message for the logged-in user and a logout button (dynamic using localStorage).             |
+| **Stylish UI/UX**          | Uses gradients, hover effects, animations (AOS), icons, and shadows for a modern, clean design.                 |
+| **Form Submission**        | Form sends the uploaded image to the server route `/submit` for backend processing (likely AI prediction).      |
+| **External Libraries**     | Utilizes jQuery, Bootstrap, Owl Carousel, Fancybox, and Animate on Scroll for better interactivity and visuals. |
+| **Semantic HTML**          | Organized and readable HTML with comments, indentation, and sectioning for easy maintenance.                    |
+
+*Server-side Templating: The code includes {{ url_for(...) }}, which means it's rendered via a Python web framework like Flask.
+*Security/Validation: Basic client-side validation is present (image dimension); deeper validation likely happens on the backend.
+*User Data Persistence: localStorage is used to display the logged-in user’s name.
+
+
+
+
